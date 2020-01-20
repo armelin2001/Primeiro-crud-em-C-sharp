@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Primeiro_crud_em_C_sharp.Database {
     public class ApplicationDBContext : DbContext {
-
+        public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options) {
+        }
     }
 }
