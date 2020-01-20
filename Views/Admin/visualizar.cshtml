@@ -1,0 +1,15 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+<h2>Helo word</h2>
+@if ((bool)ViewData["HelloWord"])
+{
+    <h1>Óla mundo - primira view</h1>
+}
+else
+{
+    <h1>Tchau mundo?</h1>
+}
