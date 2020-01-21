@@ -11,22 +11,22 @@ namespace Primeiro_crud_em_C_sharp.Controllers
 {
     public class FuncionariosController : Controller
     {
-        private readonly RepositorioFuncionario pessoa;
+        private readonly RepositorioFuncionario fun;
 
-        public FuncionariosController(RepositorioFuncionario pessoa) {
-            this.pessoa = pessoa;
+        public FuncionariosController(RepositorioFuncionario funcionario) {
+            fun = funcionario;
         }
         public IActionResult Cadastrar()
         {
             
-            return View();
+            return View(fun.ListarTodos());
         }
         [HttpPost]
         public IActionResult Salvar(Funcionario funcionario) {
             if (ModelState.IsValid) {
-                pessoa.Adicionar(funcionario);
-                return Content("Funcionario salvo com sucesso! ");
-            }//fazer tratamento de erro no back casso o erro passe no front 
+                fun.Adicionar(funcionario);
+                return View();
+            }
             else {
                 return View();
             }
@@ -35,10 +35,11 @@ namespace Primeiro_crud_em_C_sharp.Controllers
             return View();
         }
         public IActionResult Alterar() {
-
+            return View();
         }
         public IActionResult ListarFuncionarios() {
-
+            
+            return View(fun.ListarTodos());
         }
     }
 }

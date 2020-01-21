@@ -1,7 +1,47 @@
-﻿@model Primeiro_crud_em_C_sharp.Models.Funcionario
-<h2>Cadastro de Funcionarios</h2>
-<form class="form-horizontal" asp-action="Salvar" asp-controller="Funcionarios" method="post">
-    <input type="text"class="form-control" asp-for="Nome" placeholder="Nome..."/>
-    <input type="number" class="form-control" asp-for="Salario" placeholder="Salario..."/>
-    <button class="btn btn-success">Cadastrar</button>
-</form>
+﻿@model IEnumerable<Primeiro_crud_em_C_sharp.Models.Funcionario>
+
+@{
+    ViewData["Title"] = "ListarFuncionarios";
+}
+
+<h1>ListarFuncionarios</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salario)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salario)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Primeiro_crud_em_C_sharp.Database;
+using Primeiro_crud_em_C_sharp.Repository;
 
 namespace Primeiro_crud_em_C_sharp {
     public class Startup {
@@ -25,6 +26,7 @@ namespace Primeiro_crud_em_C_sharp {
             
             services.AddDbContext<ApplicationDBContext>(options => options.UseMySql(Configuration.GetConnectionString("Connection")));
             services.AddControllersWithViews();
+            services.AddTransient<RepositorioFuncionario>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

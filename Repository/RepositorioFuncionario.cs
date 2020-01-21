@@ -15,7 +15,7 @@ namespace Primeiro_crud_em_C_sharp.Repository {
         public Funcionario Buscar(int id) {
             return dataBase.Funcionarios.FirstOrDefault(fu => fu.Id == id);//referenciando a table Funcionarios do bd 
         }
-        public List<Funcionario> Listar() {
+        public List<Funcionario> ListarTodos() {
             return dataBase.Funcionarios.ToList();
         }
         public void Adicionar(Funcionario funcionario) {
