@@ -1,0 +1,7 @@
+﻿@model Primeiro_crud_em_C_sharp.Models.Funcionario
+<h2>Cadastro de Funcionarios</h2>
+<form class="form-horizontal" asp-action="Salvar" asp-controller="Funcionarios" method="post">
+    <input type="text"class="form-control" asp-for="Nome" placeholder="Nome..."/>
+    <input type="number" class="form-control" asp-for="Salario" placeholder="Salario..."/>
+    <button class="btn btn-success">Cadastrar</button>
+</form>

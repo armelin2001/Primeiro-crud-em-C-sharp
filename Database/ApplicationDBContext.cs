@@ -9,8 +9,7 @@ using Primeiro_crud_em_C_sharp.Models;
 
 namespace Primeiro_crud_em_C_sharp.Database {
     public class ApplicationDBContext : DbContext {
-        DbSet<Funcionario> Funcionarios;//mepando entidade no bd vai criar uma table com o apelido Funcionarios
-        //faltou n fazer migração
+        public DbSet<Funcionario> Funcionarios { get; set; }//mepando entidade no .net que vai criar uma table com o apelido Funcionarios
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options) {
 
         }

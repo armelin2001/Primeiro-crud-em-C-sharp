@@ -8,9 +8,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Primeiro_crud_em_C_sharp.Models {
     public class Funcionario {
-        int id { get; set;}
-        string nome { get; set;}
-        float salario { get; set;}
+        //para podermos mapear um  atributo para o entity é necessario que o mesmo tenha a primeira letra maiuscula e seja declarado como public 
+        public int Id { get; set;}
+        public string Nome { get; set;}
+        public float Salario { get; set;}
          
     }
 }
