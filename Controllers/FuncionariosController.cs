@@ -9,20 +9,18 @@ using Primeiro_crud_em_C_sharp.Repository;
 
 namespace Primeiro_crud_em_C_sharp.Controllers
 {
-    public class FuncionariosController : Controller
-    {
+    public class FuncionariosController : Controller {
         private readonly RepositorioFuncionario fun;
 
         public FuncionariosController(RepositorioFuncionario funcionario) {
             fun = funcionario;
         }
-        public IActionResult Cadastrar()
-        {
-            
-            return View(fun.ListarTodos());
+        [HttpGet]
+        public IActionResult Cadastrar() {
+            return View();
         }
         [HttpPost]
-        public IActionResult Salvar(Funcionario funcionario) {
+        public IActionResult Cadastrar(Funcionario funcionario) {
             if (ModelState.IsValid) {
                 fun.Adicionar(funcionario);
                 return View();
@@ -31,10 +29,31 @@ namespace Primeiro_crud_em_C_sharp.Controllers
                 return View();
             }
         }
-        public IActionResult Deletar() {
-            return View();
+        public IActionResult Deletar(int id) {
+            var funcionario = fun.Buscar(id);
+            fun.Excluir(funcionario);
+            return View("./Cadastrar");
         }
-        public IActionResult Alterar() {
+        [HttpPost]
+        public IActionResult Alterar(Funcionario funcionario) {
+            if (ModelState.IsValid) {
+                fun.Editar(funcionario);
+                return View();
+            } else {
+                return View();
+            }
+        }
+        public IActionResult Alterar(int id) {
+            var funcionario = fun.Buscar(id);
+            return View(funcionario);
+        }
+        public IActionResult Detalhes(int id) {
+            var funcionarioDetalhe = fun.Buscar(id);
+            return View(funcionarioDetalhe);
+        }
+        [HttpPost]
+        public IActionResult Detalhes(Funcionario funcionario) {
+            fun.Detalhes(funcionario);
             return View();
         }
         public IActionResult ListarFuncionarios() {

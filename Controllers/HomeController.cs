@@ -16,7 +16,6 @@ namespace Primeiro_crud_em_C_sharp.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly RepositorioFuncionario fun;
 
-
         public HomeController(ILogger<HomeController> logger, RepositorioFuncionario funcionario)
         {
             _logger = logger;
